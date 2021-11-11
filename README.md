@@ -18,6 +18,8 @@ Hey! Welcome, I have nothing to say, so just let's start explaining.
 
 There's already an event example in the path `src/Events/ready.js`, for commands it's like this:
 
+1. Go to 'src', create a folder called 'Commands', if you want a category, example: 'src/Testing/Test.js'
+
 ```ts
 module.exports = new Command({
     name: string;
@@ -51,3 +53,9 @@ module.exports = new Command({
 	}
 });
 ```
+
+For Slash Commands, like this:
+
+1. Go to 'src', create a folder called 'Interactions', and a new folder called 'SlashCommands', ending in a path like: 'src/Interactions/SlashCommands/{command}.js'
+
+For options info go to `src/Util/Classes/BotClient.ts`
