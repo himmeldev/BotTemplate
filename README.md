@@ -47,7 +47,7 @@ module.exports = new Command({
 	},
 	category: "general",
 	run: async (d) => {
-		d.message.reply({ content: "Hi! The test command is working! " });
+		d.Util.reply(d, { content: "Hi! The test command is working! " });
 	}
 });
 ```
