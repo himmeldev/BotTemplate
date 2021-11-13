@@ -6,7 +6,7 @@ module.exports = new Event({
 	run: async (d, message) => {
 		if (message.author.bot) return;
 		/**
-		 * If you don't want commands to work in dms just add change the inside of the if to:
+		 * If you don't want commands to work in dms just change the inside of the if to:
 		 * if (message.author.bot || !message.guild) return;
 		 * */
 
@@ -16,7 +16,7 @@ module.exports = new Event({
 
 		const args =
 			message.content
-				?.slice(configuration.prefix)
+				?.slice(configuration.prefix.length)
 				?.trim()
 				?.split(/ +/g)
 				?.filter((string) => string) || [];
