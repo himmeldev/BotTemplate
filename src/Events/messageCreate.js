@@ -25,7 +25,10 @@ module.exports = new Event({
 
 		if (findMentions(message.content, "ids")[0] === d.client.user.id && args.length === 1) return d.Util.reply(Instance, { content: `Message here.` });
 
-		if (!message.content.startsWith(configuration.prefix)) return;
+		if (!message.content.toLowerCase().startsWith(configuration.prefix)) return;
+		/**
+		 * If you want the prefix to be case sensitive simply delete the '.toLowerCase()' in the if ^
+		 */
 
 		const cmd = args.shift().toLowerCase();
 		if (!cmd.length) return;
