@@ -9,7 +9,7 @@ const client = new BotClient();
 const d = {
 	client,
 	db,
-	Functions,
+	Util: Functions,
 	commands: client.commands,
 	configuration: {
 		prefix,

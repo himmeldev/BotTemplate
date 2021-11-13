@@ -1,5 +1,5 @@
-import { Event } from "../Util/Classes/Event";
-import { findMentions } from "../Util/Regex";
+const { Event } = require("../Util/Classes/Event");
+const { findMentions } = require("../Util/Regex");
 
 module.exports = new Event({
 	name: "messageCreate",
