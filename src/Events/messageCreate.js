@@ -10,9 +10,8 @@ module.exports = new Event({
 		 * if (message.author.bot || !message.guild) return;
 		 * */
 
-		const { configuration } = d;
-
 		const Instance = d.Util.CreateInstance(d, { message, user: message.author, member: message?.member || null, guild: message?.guild || null });
+		const { configuration } = Instance;
 
 		const args =
 			message.content
@@ -35,13 +34,13 @@ module.exports = new Event({
 
 		const command = d.commands.find((Command) => Command.name === cmd || Command?.aliases?.includes(cmd));
 
-        try {
-            if (command.category === "developer" && !d.client.Internal.owner(Instance.user.id)) return;
+		try {
+			if (command.category === "developer" && !d.client.Internal.owner(Instance.user.id)) return;
 
-            await command.run(Instance);
-        } catch (error) {
-            await d.Util.HandleError(d.client.users.cache.get(d.client.Internal.owner()[0]), Instance, error);
-            Instance.channel.send({ content: `I'm sorry! An error has ocurred ${Instance.user}, I've already contacted my developer.`})
-        }
+			await command.run(Instance);
+		} catch (error) {
+			await d.Util.HandleError(d.client.users.cache.get(d.client.Internal.owner()[0]), Instance, error);
+			Instance.channel.send({ content: `I'm sorry! An error has ocurred ${Instance.user}, I've already contacted my developer.` });
+		}
 	}
 });
