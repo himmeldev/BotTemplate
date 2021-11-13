@@ -5,7 +5,7 @@ const pGlob = promisify(glob);
 
 class BotClient extends Client {
 	commands = new Collection();
-	statcord;
+	owner;
 
 	constructor() {
 		super({

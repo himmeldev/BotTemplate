@@ -1,4 +1,4 @@
-import { Client, Collection, Intents } from "discord.js";
+import { Client, Collection, Intents, User } from "discord.js";
 import { Command, InteractionCommand } from "./Commands";
 
 import * as glob from "glob";
@@ -8,6 +8,7 @@ const pGlob = promisify(glob);
 
 export class BotClient extends Client {
 	commands: Collection<string, Command | InteractionCommand> = new Collection();
+	owner: User; /** Declared on 'ready.js' event. */
 
 	constructor() {
 		super({
